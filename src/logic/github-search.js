@@ -1,3 +1,5 @@
+import * as dayjs from 'dayjs'
+
 const headers = new Headers(
 	{ Accept: "application/vnd.github.v3+json" },
 	{ authorization: "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" }
@@ -16,34 +18,12 @@ function createQuery(queries) {
 		.slice(0, -1);
 }
 
-function createDynamicDate(action = undefined, daysDiff = 0) {
-	const currentDate = new Date();
-	const year = currentDate.getFullYear();
-	const month =
-		currentDate.getMonth() < 10
-			? "0" + currentDate.getMonth()
-			: currentDate.getMonth();
-	const date =
-		currentDate.getDate() < 10
-			? "0" + currentDate.getDate()
-			: currentDate.getDate();
-	switch (action) {
-		case undefined:
-			return `${year}-${month}-${date}`;
-		case "ADD":
-			return `${year}-${month}-${date + daysDiff}`;
-		case "SUB":
-			return `${year}-${month}-${date - daysDiff}`;
-		default:
-			throw new Error("Action Unknown");
-	}
-}
 
 function fetchRepositories() {
 	const url = new URL("https://api.github.com/search/repositories");
 	url.search = createQuery([
 		{
-			query: { selector: "created", value: createDynamicDate("ADD", 7) },
+			query: { selector: "created", value: dayjs().subtract(7, 'days').format('YYYY-MM-DD')},
 			condition: ">",
 		},
 		{ query: { selector: "sort", value: "stars" } },

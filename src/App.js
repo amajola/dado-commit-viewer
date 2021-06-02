@@ -13,13 +13,16 @@ function App() {
 			setRepositories(data.items);
 		});
 	}, []);
+
 	return (
-		<Router exact path="/">
+		<Router exact path="/" className="">
 			<Redirect to="/home" />
 			<div className="App">
 				<Switch>
 					<Route path="/home">
-						<HomePage data={repositories} />
+						{repositories !== null ? (
+							<HomePage data={repositories} />
+						) : ("")}
 					</Route>
 					<Route path="/commits">
 						<CommitsPage />

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/search_bar/search_bar";
 import "./home.scss";
@@ -34,10 +35,10 @@ function Home(props) {
 						</p>
 					</div>
 					<div className="repository-items-container">
-						{props.data !== null
+						{props.data != null
 							? props.data.slice(0, 4).map((element) => {
 									return (
-										<div className="repository-items">
+										<div className="repository-items" key={element.full_name}>
 											<Link
 												className="repository-items-text"
 												to={{
@@ -55,6 +56,10 @@ function Home(props) {
 			</main>
 		</div>
 	);
+}
+
+Home.propTypes = {
+	data: PropTypes.array
 }
 
 export default Home;

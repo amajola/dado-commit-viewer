@@ -10,8 +10,7 @@ function Commits(props) {
 
 	useEffect(() => {
 		fetchCommits(location.hash.replace(/#/g, "")).then((data) => {
-			if (data !== undefined) {
-				console.log(data);
+			if (data != null) {
 				setCommits(data);
 			}
 		});
@@ -34,9 +33,15 @@ function Commits(props) {
 				{commits !== null ? (
 					commits.slice(0, 10).map((element) => {
 						return (
-							<div className="container-commit">
+							<div className="container-commit" key={element.sha}>
 								<div className="avatar-container">
-									<span className="dot"></span>
+									<div className="dot">
+										<img
+											alt="committer-avatar"
+											src={
+												element.author.avatar_url
+											}></img>
+									</div>
 									<p className="owner-name">
 										{element.commit.author.name}
 									</p>

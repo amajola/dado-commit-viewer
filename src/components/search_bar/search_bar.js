@@ -16,28 +16,33 @@ function SearchBar(params) {
 			className={`search-container ${
 				params.className !== undefined ? params.className : ""
 			}`}>
-			<div className="search-container-grow">
-				<FontAwesomeIcon
-					icon={faSearch}
-					color="blue"
-					className="search-icon"
-				/>
-				<input
-					type="text"
-					id="search-input"
-					className="search-field"
-					value={searchValue}
-					onChange={handleChange}
-					placeholder="Eg. facebook/react"></input>
-			</div>
-			<Link
-				className="on-click"
-				to={{
-					pathname: "/commits",
-					hash: searchValue !== "" ? searchValue : "No Repository Provided",
-				}}>
-				See commits 🚀
-			</Link>
+			<form className="search-container-grow">
+				<div className="search-field-container">
+					<FontAwesomeIcon
+						icon={faSearch}
+						color="blue"
+						className="search-icon"
+					/>
+					<input
+						type="text"
+						id="search-input"
+						className="search-field"
+						value={searchValue}
+						onChange={handleChange}
+						placeholder="Eg. facebook/react"></input>
+				</div>
+				<Link
+					className="on-click"
+					to={{
+						pathname: "/commits",
+						hash:
+							searchValue !== ""
+								? searchValue
+								: "No Repository Provided",
+					}}>
+					<button type="submit">See commits 🚀</button>
+				</Link>
+			</form>
 		</div>
 	);
 }
