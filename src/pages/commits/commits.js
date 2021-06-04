@@ -39,8 +39,12 @@ function Commits(props) {
 										<img
 											alt="committer-avatar"
 											src={
-												element.author.avatar_url
-											}></img>
+												element.author !=
+												null
+													? element.author.avatar_url
+													: `https://ui-avatars.com/api/?size=300&name=${element.commit.author.name}`
+											}
+										/>
 									</div>
 									<p className="owner-name">
 										{element.commit.author.name}
