@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { fetchCommits } from "../../logic/github-search";
 import SearchBar from "../../components/search_bar/search_bar";
+import Loader from "react-loader-spinner";
 import "./commits.scss";
+import dayjs from "dayjs";
 
 function Commits(props) {
 	const location = useLocation();
@@ -34,13 +36,15 @@ function Commits(props) {
 					commits.slice(0, 10).map((element) => {
 						return (
 							<div className="container-commit" key={element.sha}>
+								<div className="commit-message-text">
+									<p>{element.commit.message.slice(0, 50)}</p>
+								</div>
 								<div className="avatar-container">
 									<div className="dot">
 										<img
 											alt="committer-avatar"
 											src={
-												element.author !=
-												null
+												element.author != null
 													? element.author.avatar_url
 													: `https://ui-avatars.com/api/?size=300&name=${element.commit.author.name}`
 											}
@@ -50,21 +54,26 @@ function Commits(props) {
 										{element.commit.author.name}
 									</p>
 								</div>
-								<div className="commit-message-text">
-									{element.commit.message.slice(0, 50)}
-								</div>
-								<div className="commit-message-text">
+
+								<div className="commit-message-date">
 									<p>
-										{new Date(
+										{dayjs(
 											element.commit.author.date
-										).toDateString()}
+										).format("h:mm MM/DD/YYYY")}
 									</p>
 								</div>
 							</div>
 						);
 					})
 				) : (
-					<p>Loading...</p>
+					<div className="loader">
+						<Loader
+							type="Rings"
+							color="#F3663F"
+							height={80}
+							width={80}
+						/>
+					</div>
 				)}
 			</div>
 		</div>

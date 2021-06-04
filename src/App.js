@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import HomePage from "./pages/home/home";
 import CommitsPage from "./pages/commits/commits";
 import { fetchRepositories } from "./logic/github-search";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.scss";
 
 function App() {

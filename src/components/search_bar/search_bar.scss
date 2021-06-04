@@ -33,23 +33,25 @@
 		display: flex;
 		align-items: center;
 		width: 100%;
-		height: 1000%;
+		height: 100%;
 		background: #dfe4ea;
 		border-radius: 5px;
 		margin-bottom: 2em;
+		height: 100%;
+		position: relative;
 		@media (min-width: 768px) {
 			margin-right: 1em;
 			width: 70%;
-			height: 80%;
 			margin-bottom: unset;
 		}
 		@media (min-width: 992px) {
 			width: 80%;
 		}
 		.search-icon {
-			padding: 0 1em;
+			padding-left: 1em;
+			position: absolute;
 			@media (min-width: 768px) {
-				padding: 1em;
+				padding: 1.3em;
 			}
 			color: #29335c;
 		}
@@ -61,11 +63,9 @@
 		all: unset;
 		text-align: left;
 		width: 100%;
-		height: 100%;
-		padding: 1em;
-		@media (min-width: 768px) {
-			padding: unset;
-		}
+		height: 3rem;
+		padding-left: 45.63px;
+		box-sizing: border-box;
 		&::-webkit-input-placeholder {
 			/* Chrome/Opera/Safari */
 			@extend .placeholder-styles;
@@ -108,16 +108,14 @@
 		text-align: center;
 		letter-spacing: -0.5px;
 		cursor: pointer;
-		height: 100%;
+		height: 3rem;
 		width: 100%;
-		padding: 0.5em 0;
 		button {
+			all: unset;
 			color: #ffffff;
-			all: unset
 		}
 
 		@media (min-width: 768px) {
-			height: 80%;
 			width: 30%;
 			padding: 0 1em;
 		}
