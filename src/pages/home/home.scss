@@ -25,15 +25,11 @@
 	}
 
 	.container-item.links {
-		display: flex;
-		flex-direction: row;
+		display: grid;
+		grid-auto-flow: column;
 		justify-content: center;
-		width: 100%;
 		gap: 32px;
-		width: 100%;
 		@media (min-width: 768px) {
-			width: unset;
-			flex-grow: 0.1;
 			margin-block-end: unset;
 			gap: 42px;
 		}
