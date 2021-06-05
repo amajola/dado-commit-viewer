@@ -157,7 +157,6 @@
 		flex-direction: column;
 		align-items: center;
 		cursor: pointer;
-		gap: 32px;
 		padding-bottom: 38px;
 		margin: 0 5%;
 		
@@ -173,6 +172,10 @@
 		background: #29335c;
 		border-radius: 8px;
 		color: white;
+		margin-bottom: 32px;
+		&:last-child {
+			margin-bottom: unset;
+		}
 		.repository-items-text {
 			all: unset;
 			color: white;
