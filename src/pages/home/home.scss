@@ -10,6 +10,9 @@
 	.container-item.title {
 		flex-grow: 0.1;
 		cursor: pointer;
+		@media (min-width: 768px) {
+			margin-left: 4em;
+		}
 		& h2 {
 			font-style: normal;
 			font-weight: bold;
@@ -19,6 +22,7 @@
 			color: #18214d;
 			margin: 24px 131px 16px 131px;
 			@media (min-width: 768px) {
+				text-align: left;
 				margin: revert;
 			}
 		}
@@ -30,6 +34,7 @@
 		justify-content: center;
 		gap: 32px;
 		@media (min-width: 768px) {
+			margin-right: 4em;
 			margin-block-end: unset;
 			gap: 42px;
 		}
