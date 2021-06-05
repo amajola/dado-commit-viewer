@@ -42,8 +42,10 @@
 			gap: 64px;
 		}
 		& h5 {
-			cursor: pointer;
 			margin-block: unset;
+			cursor: pointer;
+			margin-block-end: unset;
+			margin-inline-start: unset;
 			font-style: normal;
 			font-weight: normal;
 			font-size: 20px;
